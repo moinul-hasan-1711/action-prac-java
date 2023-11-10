@@ -1,0 +1,29 @@
+name: Build And Run Java
+# events
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build_and_run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2 # clone repo to run operation
+
+      - name: Set up # set up programming language version
+        uses: actions/setup-java@v2
+        with:
+          java-version: '17'
+          distribution: 'openjdk' 
+
+      - name: Go Into Destination
+        run: cd src # go into destination folder
+        shell: bash
+
+      - name: Build # B
+        run: javac Main.java
+        shell: bash
+
+      - name: Run
+        run: java Main
+        shell: bash
