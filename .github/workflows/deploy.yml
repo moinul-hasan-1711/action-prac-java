@@ -16,14 +16,10 @@ jobs:
           java-version: '17'
           distribution: 'adopt' 
 
-      - name: Go Into Destination
-        run: cd src # go into destination folder
-        shell: bash
-
       - name: Build # B
-        run: javac Main.java
+        run: cd src && javac Main.java
         shell: bash
 
       - name: Run
-        run: java Main
+        run: cd src && java Main
         shell: bash
